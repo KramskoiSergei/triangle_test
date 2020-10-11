@@ -7,6 +7,7 @@ import io.restassured.config.RestAssuredConfig;
 import io.restassured.path.json.config.JsonPathConfig;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
+import org.junit.jupiter.api.BeforeEach;
 import utils.TestUtils;
 
 import java.util.List;
@@ -17,6 +18,11 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.anything;
 
 public class BaseTriangle {
+    static {
+        JsonConfig jsonNumbersConfig = new JsonConfig(JsonPathConfig.NumberReturnType.BIG_DECIMAL);
+        RestAssured.config = new RestAssuredConfig().set().jsonConfig(jsonNumbersConfig);
+    }
+
     public RequestSpecification baseRequestSpec = given()
             .baseUri(TestUtils.properties.getProperty("base_url"))
             .header("X-User", TestUtils.properties.getProperty("user_id"))
@@ -28,9 +34,9 @@ public class BaseTriangle {
             .header("Connection", "keep-alive")
             .header("Date", anything());
 
-    public BaseTriangle() {
-        JsonConfig jsonNumbersConfig = new JsonConfig(JsonPathConfig.NumberReturnType.BIG_DECIMAL);
-        RestAssured.config = new RestAssuredConfig().set().jsonConfig(jsonNumbersConfig);
+    @BeforeEach
+    void clearState() {
+        removeAllTriangles();
     }
 
     public void removeAllTriangles() {

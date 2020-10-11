@@ -1,8 +1,6 @@
 package triangle.negative;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import triangle.BaseTriangle;
@@ -11,7 +9,6 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.equalTo;
 
-@Execution(ExecutionMode.CONCURRENT)
 public class IncorrectPostTriangleParamsTest extends BaseTriangle {
     @ValueSource(strings = {
             "{\n" +

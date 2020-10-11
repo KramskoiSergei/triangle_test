@@ -2,19 +2,12 @@ package triangle.positive;
 
 import datamodel.Triangle;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import triangle.BaseTriangle;
 
 import static io.restassured.RestAssured.given;
 
-//DO NOT PARALLEL THIS TESTS
 public class GetPerimeterTest extends BaseTriangle {
-    @BeforeEach
-    void clearState() {
-        removeAllTriangles();
-    }
-
     @Test
     void getPerimeter_WithDoubleOverflow_ReturnCorrectResultOrError() {
         Triangle triangle = new Triangle(Double.MAX_VALUE, Double.MAX_VALUE, Double.MAX_VALUE);

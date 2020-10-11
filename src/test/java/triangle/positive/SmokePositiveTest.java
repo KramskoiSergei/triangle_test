@@ -2,7 +2,6 @@ package triangle.positive;
 
 import datamodel.Triangle;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import triangle.BaseTriangle;
 
@@ -10,13 +9,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-//DO NOT PARALLEL THIS TESTS
 public class SmokePositiveTest extends BaseTriangle {
-    @BeforeEach
-    void clearState() {
-        removeAllTriangles();
-    }
-
     @Test
     void getTriangle_withCorrectData_WillReturnTriangle() {
         Triangle expectedTriangle = new Triangle(3.0, 4.0, 5.0);

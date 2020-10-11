@@ -2,18 +2,11 @@ package triangle.positive;
 
 import datamodel.Triangle;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import triangle.BaseTriangle;
 
-//DO NOT PARALLEL THIS TESTS
 public class PostTriangleTest extends BaseTriangle {
-    @BeforeEach
-    void clearState() {
-        removeAllTriangles();
-    }
-
     @ValueSource(strings = {
             "-",
             "}",

@@ -2,14 +2,11 @@ package triangle.negative;
 
 import datamodel.Triangle;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
 import triangle.BaseTriangle;
 import utils.TestUtils;
 
 import static io.restassured.RestAssured.given;
 
-@Execution(ExecutionMode.CONCURRENT)
 public class IncorrectGetTriangleParamsTest extends BaseTriangle {
     @Test
     void getTriangle_WithIncorrectId_Return404() {
