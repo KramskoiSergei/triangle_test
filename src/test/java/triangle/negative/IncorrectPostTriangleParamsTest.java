@@ -9,7 +9,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.equalTo;
 
-public class IncorrectPostTriangleParamsTest extends BaseTriangle {
+class IncorrectPostTriangleParamsTest extends BaseTriangle {
     @ValueSource(strings = {
             "{\n" +
                     "\"separator\": \":\", \n" +
@@ -97,7 +97,7 @@ public class IncorrectPostTriangleParamsTest extends BaseTriangle {
                 .spec(correctResponseHeaders)
                 .body("error", equalTo("Bad Request"))
                 .body("exception", containsString("HttpMessageNotReadableException"))
-                .body("message", equalTo("Required request body is missing"));;
+                .body("message", equalTo("Required request body is missing"));
     }
 
     @Test
@@ -113,6 +113,6 @@ public class IncorrectPostTriangleParamsTest extends BaseTriangle {
                 .spec(correctResponseHeaders)
                 .body("error", equalTo("Bad Request"))
                 .body("exception", containsString("HttpMessageNotReadableException"))
-                .body("message", containsString("Could not read document"));;
+                .body("message", containsString("Could not read document"));
     }
 }
