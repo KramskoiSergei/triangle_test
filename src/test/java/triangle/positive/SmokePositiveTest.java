@@ -18,8 +18,8 @@ public class SmokePositiveTest extends BaseTriangle {
 
         Assertions.assertAll(
                 () -> Assertions.assertEquals(expectedTriangle.getFirstSide(), actualTriangle.getFirstSide(), "Firs side incorrect"),
-                () -> Assertions.assertEquals(expectedTriangle.getSecondSide(), actualTriangle.getSecondSide(), "Firs side incorrect"),
-                () -> Assertions.assertEquals(expectedTriangle.getThirdSide(), actualTriangle.getThirdSide(), "Firs side incorrect")
+                () -> Assertions.assertEquals(expectedTriangle.getSecondSide(), actualTriangle.getSecondSide(), "Second side incorrect"),
+                () -> Assertions.assertEquals(expectedTriangle.getThirdSide(), actualTriangle.getThirdSide(), "Third side incorrect")
         );
     }
 
