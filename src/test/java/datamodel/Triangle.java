@@ -1,17 +1,20 @@
 package datamodel;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @EqualsAndHashCode
+@ToString
 public class Triangle {
     public static final String BASE_SEPARATOR = ";";
+    @ToString.Exclude
     private String id;
+    @NonNull
     private Double firstSide;
+    @NonNull
     private Double secondSide;
+    @NonNull
     private Double thirdSide;
 
     public Triangle() {

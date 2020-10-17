@@ -10,6 +10,19 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class SmokePositiveTest extends BaseTriangle {
+
+    @Test
+    void postTriangle_WithCorrectData_ReturnCorrectTriangleResponse() {
+        Triangle expectedTriangle = new Triangle(3.0, 4.0, 5.0);
+        Triangle actualTriangle = postTriangle(expectedTriangle);
+
+        Assertions.assertAll(
+                () -> Assertions.assertEquals(expectedTriangle.getFirstSide(), actualTriangle.getFirstSide(), "Firs side incorrect"),
+                () -> Assertions.assertEquals(expectedTriangle.getSecondSide(), actualTriangle.getSecondSide(), "Firs side incorrect"),
+                () -> Assertions.assertEquals(expectedTriangle.getThirdSide(), actualTriangle.getThirdSide(), "Firs side incorrect")
+        );
+    }
+
     @Test
     void getTriangle_withCorrectData_WillReturnTriangle() {
         Triangle expectedTriangle = new Triangle(3.0, 4.0, 5.0);
